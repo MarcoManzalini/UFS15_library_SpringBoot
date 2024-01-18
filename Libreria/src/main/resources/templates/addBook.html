@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="container">
+
+<form action="#" th:action="@{/addBookAction}" th:object="${book}" method="post">
+    <p>Author</p>
+    <input type="text" th:field="*{author}"/>
+    <p th:if="${#fields.hasErrors('author')}" th:errors="*{author}">deve essere tra le 3 e i 10</p>
+
+    <br/>
+
+    <p>Title</p>
+    <input type="text" th:field="*{title}"/>
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">deve essere tra le 3 e i 10</p>
+
+    <br/>
+
+    <p>Pubblication year (dd/mm/yyyy)</p>
+    <input type="text" th:field="*{pubblicationYear}"/>
+    <p th:if="${#fields.hasErrors('pubblicationYear')}" th:errors="*{pubblicationYear}">deve essere tra le 3 e i 10</p>
+
+    <br/>
+
+    <p>Price</p>
+    <input type="number" th:field="*{price}"/>
+    <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">deve essere tra le 3 e i 10</p>
+
+    <br/>
+
+    <input type="submit" value="submit">
+
+</form>
+
+</body>
+</html>
