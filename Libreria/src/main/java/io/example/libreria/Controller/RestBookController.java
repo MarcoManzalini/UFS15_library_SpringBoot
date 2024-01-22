@@ -55,7 +55,9 @@ public class RestBookController {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
         for(Item item: root.items){
-            Book tempBook = new Book(item.volumeInfo.authors.get(0), item.volumeInfo.title,
+            Book tempBook = new Book(
+                item.volumeInfo.authors == null ? "no author" : item.volumeInfo.authors.get(0),
+                item.volumeInfo.title,
                     df.format(item.volumeInfo.publishedDate.getTime()),
                     item.saleInfo.listPrice == null ?
                             0 : item.saleInfo.listPrice.amount
